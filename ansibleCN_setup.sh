@@ -52,7 +52,7 @@ read USERNAME
 useradd -m -G sudo -s /bin/bash $USERNAME
 passwd $USERNAME
 
-mv ansibleWK_setup.sh myplaybook.yml /home/$USERNAME
+mv ansibleMN_setup.sh myplaybook.yml /home/$USERNAME
 
 # Create passwordless sudo for user $USERNAME
 # ** add file in /etc/sudoers.d/
