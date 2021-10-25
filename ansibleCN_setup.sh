@@ -39,7 +39,7 @@ systemctl start fail2ban.service
 # ufw
 # ========
 ufw allow openssh
-ufw enable
+ufw enable -y
 ufw status
 
 echo "##########################################################"
