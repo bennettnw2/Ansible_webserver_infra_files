@@ -12,7 +12,6 @@ hostnamectl set-hostname CtlPlane
 # Secure ssh a bit with no root login and no x11 forwarding
 sed -in 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -in 's/X11Forwarding yes/X11Forwarding no/' /etc/ssh/sshd_config
-# This is needed to configure the Worker Nodes?
 sed -in 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking no/' /etc/ssh/ssh_config
 
 echo "##########################################################"
@@ -22,6 +21,7 @@ echo "##########################################################"
 # ==================================================================================================== 
 apt install sshpass -y
 apt install ansible -y
+apt install apache2 -y
 apt install fail2ban -y
 apt install net-tools -y
 apt install python3-pip -y
