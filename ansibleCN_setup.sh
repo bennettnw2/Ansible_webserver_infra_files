@@ -20,9 +20,6 @@ echo "# Installing Software                                    #"
 echo "##########################################################"
 # Install Software
 # ==================================================================================================== 
-apt install git -y
-apt install tmux -y
-apt install lynx -y
 apt install sshpass -y
 apt install ansible -y
 apt install fail2ban -y
