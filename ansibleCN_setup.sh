@@ -21,7 +21,6 @@ echo "##########################################################"
 # ==================================================================================================== 
 apt install sshpass -y
 apt install ansible -y
-apt install apache2 -y
 apt install fail2ban -y
 apt install net-tools -y
 apt install python3-pip -y
