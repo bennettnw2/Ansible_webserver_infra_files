@@ -17,8 +17,8 @@ systemctl start fail2ban.service
 echo "##########################################################"
 echo "# Creating limited user                                  #"
 echo "##########################################################"
-
-echo "\nPlease enter prefered username: "
+echo ""
+echo "Please enter prefered username: "
 read USERNAME
 # create limited user and give sudo privileges
 useradd -m -G sudo -s /bin/bash $USERNAME
