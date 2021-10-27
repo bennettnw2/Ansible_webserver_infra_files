@@ -44,7 +44,7 @@
         groups: web
         append: yes
 
-    - name: "Set contenct directory group/permisions"
+    - name: "Set content directory group/permissions"
       file:
         path: /var/www/html
         owner: root
