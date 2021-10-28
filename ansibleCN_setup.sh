@@ -1,5 +1,5 @@
 #! /bin/bash
-# This is the script to run to setup an Ansible control plane.
+# This is the script to run to setup an Ansible control node.
 
 echo "##########################################################"
 echo "# Update and Secure Linode Instance                      #"
