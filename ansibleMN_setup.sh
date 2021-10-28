@@ -1,7 +1,9 @@
 #!/bin/bash
-
 # This is the script to run in order to setup Ansible managed nodes.
 
+echo "##########################################################"
+echo "# Update and Secure Linode Instance                      #"
+echo "##########################################################"
 apt update
 apt upgrade -y
 
@@ -20,12 +22,12 @@ echo "##########################################################"
 echo ""
 echo "Please enter prefered username: "
 read USERNAME
-# create limited user and give sudo privileges
+# Create limited user and give sudo privileges.
 useradd -m -G sudo -s /bin/bash $USERNAME
 passwd $USERNAME
 
 # Create passwordless sudo execution for user $USERNAME
-# ** add file in /etc/sudoers.d/
+#+ and add file in /etc/sudoers.d/
 echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10-user-$USERNAME
 chmod 440 /etc/sudoers.d/10-user-$USERNAME
 visudo -c

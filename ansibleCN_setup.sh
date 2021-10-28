@@ -45,7 +45,7 @@ echo "##########################################################"
 echo ""
 echo "Please enter prefered username: "
 read USERNAME
-# create limited user and give sudo privileges
+# Create limited user and give sudo privileges.
 useradd -m -G sudo -s /bin/bash $USERNAME
 passwd $USERNAME
 
