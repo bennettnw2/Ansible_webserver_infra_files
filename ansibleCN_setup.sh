@@ -1,8 +1,9 @@
 #! /bin/bash
-
 # This is the script to run to setup an Ansible control plane.
 
-# remove unused ports
+echo "##########################################################"
+echo "# Update and Secure Linode Instance                      #"
+echo "##########################################################"
 
 apt update
 apt upgrade -y
@@ -10,6 +11,7 @@ apt upgrade -y
 hostnamectl set-hostname CtlPlane
 
 # Secure ssh a bit with no root login and no x11 forwarding
+# Need to remove host key checking for Ansible to run properly
 sed -in 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 sed -in 's/X11Forwarding yes/X11Forwarding no/' /etc/ssh/sshd_config
 sed -in 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking no/' /etc/ssh/ssh_config
@@ -22,7 +24,6 @@ echo "##########################################################"
 apt install sshpass -y
 apt install ansible -y
 apt install fail2ban -y
-apt install net-tools -y
 apt install python3-pip -y
 pip3 install passlib
 
@@ -51,16 +52,16 @@ passwd $USERNAME
 mv ansibleMN_setup.sh myplaybook.yml /home/$USERNAME
 
 # Create passwordless sudo for user $USERNAME
-# ** add file in /etc/sudoers.d/
+#+ and add file in /etc/sudoers.d/
 echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/10-user-$USERNAME
 chmod 440 /etc/sudoers.d/10-user-$USERNAME
 visudo -c
 
-# run the below to create an ssh key for the user
+# Create an ssh key for the user.
 mkdir /home/$USERNAME/.ssh
 ssh-keygen -t rsa -b 2048 -f /home/$USERNAME/.ssh/id_rsa -q -N ''
 
-# set file permissions for the user
+# Set file permissions for the user.
 chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
 chown $USERNAME:$USERNAME /home/$USERNAME/myplaybook.yml
 
