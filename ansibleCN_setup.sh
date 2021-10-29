@@ -43,7 +43,7 @@ echo "##########################################################"
 echo "# Creating limited user                                  #"
 echo "##########################################################"
 echo ""
-echo "Please enter prefered username: "
+echo "Please enter preferred username: "
 read USERNAME
 # Create limited user and give sudo privileges.
 useradd -m -G sudo -s /bin/bash $USERNAME
@@ -66,5 +66,5 @@ chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
 chown $USERNAME:$USERNAME /home/$USERNAME/myplaybook.yml
 
 echo "##########################################################"
-echo "# Dunzo. Poke around if you like.  I reccomend a reboot. #"
+echo "# Dunzo. Poke around if you like.  I recommend a reboot. #"
 echo "##########################################################"

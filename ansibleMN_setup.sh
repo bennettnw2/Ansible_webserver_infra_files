@@ -20,7 +20,7 @@ echo "##########################################################"
 echo "# Creating limited user                                  #"
 echo "##########################################################"
 echo ""
-echo "Please enter prefered username: "
+echo "Please enter preferred username: "
 read USERNAME
 # Create limited user and give sudo privileges.
 useradd -m -G sudo -s /bin/bash $USERNAME
@@ -33,5 +33,5 @@ chmod 440 /etc/sudoers.d/10-user-$USERNAME
 visudo -c
 
 echo "##########################################################"
-echo "# Dunzo. Poke around if you like.  I reccomend a reboot. #"
+echo "# Dunzo. Poke around if you like.  I recommend a reboot. #"
 echo "##########################################################"
