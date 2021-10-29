@@ -8,7 +8,7 @@ echo "##########################################################"
 apt update
 apt upgrade -y
 
-hostnamectl set-hostname CtlPlane
+hostnamectl set-hostname CtlNode
 
 # Secure ssh a bit with no root login and no x11 forwarding
 # Need to remove host key checking for Ansible to run properly
